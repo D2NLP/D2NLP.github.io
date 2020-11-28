@@ -155,6 +155,76 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://d2nlp.github.io/2020/11/28/zero-centered-active-function/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/28/zero-centered-active-function/" class="post-title-link" itemprop="url">Testing Mathjax with Hexo</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-11-28 21:51:42 / 修改时间：22:03:02" itemprop="dateCreated datePublished" datetime="2020-11-28T21:51:42+08:00">2020-11-28</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="为什么选择输出以0为中心的激活函数比较好？"><a href="#为什么选择输出以0为中心的激活函数比较好？" class="headerlink" title="为什么选择输出以0为中心的激活函数比较好？"></a>为什么选择输出以0为中心的激活函数比较好？</h1><h2 id="详细过程"><a href="#详细过程" class="headerlink" title="详细过程"></a>详细过程</h2><p><img src="/2020/11/28/zero-centered-active-function/markdown_pic\image-20201128192421873.png" alt="image-20201128192421873"></p>
+<p>随意圈出神经网络中的一个单元如图所示，该单元的左半部分是对输入的线性变换即</p>
+<script type="math/tex; mode=display">
+{w_1}{x_1} + {w_2}{x_2} + ... + {w_n}{x_n} = z</script><p>该单元的右半部分是对线性变换后的值作用激活函数，即</p>
+<script type="math/tex; mode=display">
+f\left( z \right) = f</script><p>根据反向传播公式，我们有</p>
+<p>因为 $x_i$ 为 $\sigma$ 函数的输出，所以对于所有 $i$ 来说，$x_i&gt;0$ ，即 $\dfrac{\partial L}{\partial w_1}$，$\dfrac{\partial L}{\partial w_2}$，…，$\dfrac{\partial L}{\partial w_n}$ 同号</p>
+<p>又因为在梯度下降中</p>
+<p>这意味着 $w_1$，$w_2$，…，$w_n$ 只能同向更新，为方便说明取二维解释，假设 $w_1^<em>$，$w_2^</em>$ 为最优解（图中的0,1理解为1,2）</p>
+<p><img src="/2020/11/28/zero-centered-active-function/markdown_pic\zig-zag-gradient.png" alt="img" style="zoom: 67%;"></p>
+<p>这种情况下模型只能 $z$ 字型下降收敛逼近最优解，无疑这会增加迭代次数，降低收敛速度</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>因为输出不以0为中心的激活函数，比如sigmoid函数，其输出都为正，意味着在梯度下降时对某权重1到权重n的导数要么全为正，要么全为负。这会导致梯度下降呈z字型，增加了迭代次数，降低了收敛速度</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://d2nlp.github.io/2020/11/28/try/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -169,7 +239,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/11/28/try/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2020/11/28/try/" class="post-title-link" itemprop="url">Testing Mathjax with Hexo</a>
         </h2>
 
         <div class="post-meta">
@@ -180,7 +250,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-11-28 20:05:27 / 修改时间：20:05:52" itemprop="dateCreated datePublished" datetime="2020-11-28T20:05:27+08:00">2020-11-28</time>
+              <time title="创建时间：2020-11-28 20:05:27 / 修改时间：21:50:29" itemprop="dateCreated datePublished" datetime="2020-11-28T20:05:27+08:00">2020-11-28</time>
             </span>
 
           
@@ -195,7 +265,8 @@
 
       
           <p>${x}=1$</p>
-
+<script type="math/tex; mode=display">
+{y}=2</script>
       
     </div>
 
@@ -345,7 +416,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -437,6 +508,61 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
